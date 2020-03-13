@@ -24,7 +24,7 @@ function getScreens()
 	
 	if ( !game )
 	{
-		throw new Error('Can\'t find "waiting" screen');
+		throw new Error('Can\'t find "game" screen');
 	}
 	
 	return {

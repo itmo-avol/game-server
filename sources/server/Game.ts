@@ -4,7 +4,7 @@ import type {
 	AnyServerMessage,
 	GameStartedMessage,
 	GameAbortedMessage,
-} from './messages.js';
+} from '../common/messages.js';
 
 /**
  * Класс игры
@@ -70,8 +70,8 @@ class Game
 		}
 		
 		// Обнуляем ссылки
-		this._session = null as unknown as InstanceType<typeof Game>['_session'];
-		this._playersState = null as unknown as InstanceType<typeof Game>['_playersState'];
+		this._session = null as unknown as Game['_session'];
+		this._playersState = null as unknown as Game['_playersState'];
 	}
 	
 	/**
@@ -79,7 +79,7 @@ class Game
 	 */
 	private _sendStartMessage(): Promise<void[]>
 	{
-		this._playersState = new Map();
+		this._playersState = new WeakMap();
 		
 		const data: GameStartedMessage = {
 			type: 'gameStarted',

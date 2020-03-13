@@ -46,6 +46,9 @@ export type ChangePlayerMessage = {
 	myTurn: boolean;
 };
 
+/**
+ * Повтор игры
+ */
 export type RepeatGame = {
 	/** Тип сообщения */
 	type: 'repeatGame';
