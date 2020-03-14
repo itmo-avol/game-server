@@ -2,7 +2,7 @@ import Express from 'express';
 import Path from 'path';
 import { createServer } from 'http';
 import WebSocket from 'ws';
-import config from './config.json';
+import config from '../config.json';
 
 /**
  * Приложение Express

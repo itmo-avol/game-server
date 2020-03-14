@@ -1,7 +1,7 @@
 import Path from 'path';
-import { wsServer } from './server.js';
-import { listenOn } from './connection.js';
-import { Game } from './Game.js';
+import { wsServer } from './kernel/server.js';
+import { listenOn } from './kernel/connection.js';
+import { Game } from './game/game.js';
 
 /**
  * Корневая директория проекта
