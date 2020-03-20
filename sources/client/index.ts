@@ -1,13 +1,4 @@
-const socket = new WebSocket( 'ws://localhost:8000' );
+import { listenMessages } from './connection.js';
+import { onMessage } from './on-message.js';
 
-socket.addEventListener(
-	'message',
-	( event ) =>
-	{
-		alert( event.data );
-	},
-);
-
-export {
-	socket,
-};
+listenMessages( onMessage );

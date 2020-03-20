@@ -27,9 +27,17 @@ function getScreens()
 		throw new Error('Can\'t find "game" screen');
 	}
 	
+	const result: HTMLElement | null = document.querySelector( 'main.result' );
+	
+	if ( !result )
+	{
+		throw new Error('Can\'t find "result" screen');
+	}
+	
 	return {
 		waiting,
 		game,
+		result,
 	};
 }
 
@@ -66,4 +74,8 @@ export {
 	screens,
 	openScreen,
 	getCurrentScreen,
+};
+
+export type {
+	Screen,
 };

@@ -1,11 +1,12 @@
 import WebSocket from 'ws';
+import { onError } from './on-error.js';
+
 import type {
 	AnyClientMessage,
 	AnyServerMessage,
 	GameStartedMessage,
 	GameAbortedMessage,
 } from '../../common/messages.js';
-import onError from './on-error.js';
 
 /**
  * Класс игры
@@ -200,7 +201,7 @@ class Game
 				break;
 			
 			case 'incorrectResponse':
-				console.error( 'Incorrect request: ', message.message );
+				console.error( 'Incorrect response: ', message.message );
 				break;
 			
 			default:
@@ -212,6 +213,7 @@ class Game
 					},
 				)
 					.catch( onError );
+				break;
 		}
 	}
 	
