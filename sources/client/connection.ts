@@ -5,7 +5,7 @@ import type {
 /**
  * Слушатель сообщений от сервера
  */
-type MessageListener = ( sendMessageFunction: typeof sendMessage, data: unknown ) => void
+type MessageListener = ( sendMessageFunction: typeof sendMessage, data: unknown ) => void;
 
 /**
  * Соединение по WebSocket

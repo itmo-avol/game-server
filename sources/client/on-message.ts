@@ -17,7 +17,7 @@ type SendMessage = typeof import( './connection.js' ).sendMessage;
  */
 function onMessage( sendMessage: SendMessage, data: unknown ): void
 {
-	setSendMessage( sendMessage )
+	setSendMessage( sendMessage );
 	
 	const message = parseData( data );
 	
