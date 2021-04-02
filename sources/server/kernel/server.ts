@@ -1,5 +1,5 @@
 import Express from 'express';
-import Path from 'path';
+import { join } from 'path';
 import { createServer } from 'http';
 import WebSocket from 'ws';
 import config from '../config.json';
@@ -7,15 +7,15 @@ import config from '../config.json';
 /**
  * Приложение Express
  */
-const expressApp = Express();
+export const expressApp = Express();
 /**
  * Сервер HTTP
  */
-const httpServer = createServer( expressApp );
+export const httpServer = createServer( expressApp );
 /**
  * Сервер WebSocket
  */
-const wsServer = new WebSocket.Server(
+export const wsServer = new WebSocket.Server(
 	{
 		server: httpServer,
 	},
@@ -33,10 +33,4 @@ httpServer.listen(
 	},
 );
 
-expressApp.use( Express.static( Path.join( process.cwd(), 'public' ) ) );
-
-export {
-	expressApp,
-	httpServer,
-	wsServer,
-};
+expressApp.use( Express.static( join( process.cwd(), 'public' ) ) );

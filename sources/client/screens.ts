@@ -1,33 +1,33 @@
 /**
  * Экраны приложения
  */
-const screens = getScreens();
+export const screens = getScreens();
 
 /**
  * Возможные экраны
  */
-type Screen = keyof typeof screens;
+export type Screen = keyof typeof screens;
 
 /**
  * Возвращает карту экранов приложения
  */
 function getScreens()
 {
-	const waiting: HTMLElement | null = document.querySelector( 'main.waiting' );
+	const waiting = document.querySelector<HTMLElement>( 'main.waiting' );
 	
 	if ( !waiting )
 	{
 		throw new Error('Can\'t find "waiting" screen');
 	}
 	
-	const game: HTMLElement | null = document.querySelector( 'main.game' );
+	const game = document.querySelector<HTMLElement>( 'main.game' );
 	
 	if ( !game )
 	{
 		throw new Error('Can\'t find "game" screen');
 	}
 	
-	const result: HTMLElement | null = document.querySelector( 'main.result' );
+	const result = document.querySelector<HTMLElement>( 'main.result' );
 	
 	if ( !result )
 	{
@@ -46,7 +46,7 @@ function getScreens()
  * 
  * @param screen Название экрана, на который переключиться
  */
-function openScreen( screen: Screen ): void
+export function openScreen( screen: Screen ): void
 {
 	for ( const [key, value] of Object.entries( screens ) )
 	{
@@ -57,7 +57,7 @@ function openScreen( screen: Screen ): void
 /**
  * Возвращает элемент текущего экрана
  */
-function getCurrentScreen(): (typeof screens)[keyof (typeof screens)]
+export function getCurrentScreen(): (typeof screens)[keyof (typeof screens)]
 {
 	for ( const screen of Object.values( screens ) )
 	{
@@ -69,13 +69,3 @@ function getCurrentScreen(): (typeof screens)[keyof (typeof screens)]
 	
 	throw new Error('Can\'t find current screen');
 }
-
-export {
-	screens,
-	openScreen,
-	getCurrentScreen,
-};
-
-export type {
-	Screen,
-};

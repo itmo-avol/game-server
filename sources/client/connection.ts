@@ -5,19 +5,19 @@ import type {
 /**
  * Слушатель сообщений от сервера
  */
-type MessageListener = ( sendMessageFunction: typeof sendMessage, data: unknown ) => void;
+export type MessageListener = ( sendMessageFunction: typeof sendMessage, data: unknown ) => void;
 
 /**
  * Соединение по WebSocket
  */
-const connection = new WebSocket( 'ws://localhost:8000' );
+export const connection = new WebSocket( 'ws://localhost:8000' );
 
 /**
  * Добавляет слушатель сообщений по WebSocket
  * 
  * @param listener Функция для обработки сообщений
  */
-function listenMessages( listener: MessageListener ): void
+export function listenMessages( listener: MessageListener ): void
 {
 	connection.addEventListener(
 		'message',
@@ -33,17 +33,7 @@ function listenMessages( listener: MessageListener ): void
  * 
  * @param message Сообщение, отправляемое на сервер
  */
-function sendMessage( message: AnyClientMessage ): void
+export function sendMessage( message: AnyClientMessage ): void
 {
 	connection.send( JSON.stringify( message ) );
 }
-
-export {
-	connection,
-	listenMessages,
-	sendMessage,
-};
-
-export type {
-	MessageListener,
-};

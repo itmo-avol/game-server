@@ -83,7 +83,8 @@ export type AnyServerMessage =
 	| GameResultMessage
 	| ChangePlayerMessage
 	| IncorrectRequestMessage
-	| IncorrectResponseMessage;
+	| IncorrectResponseMessage
+;
 
 /** 
  * Сообщения от клиента к серверу
@@ -92,4 +93,5 @@ export type AnyClientMessage =
 	| PlayerRollMessage
 	| RepeatGame
 	| IncorrectRequestMessage
-	| IncorrectResponseMessage;
+	| IncorrectResponseMessage
+;

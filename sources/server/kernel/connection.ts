@@ -6,7 +6,7 @@ import type {
 /**
  * Игра, поддерживающая игровые сессии
  */
-type GameWithSession = {
+export type GameWithSession = {
 	/**
 	 * Количество игроков в игровой сессии
 	 */
@@ -25,7 +25,7 @@ type GameWithSession = {
  * @param server WebSocket-сервер
  * @param Game Класс игры
  */
-function listenOn( server: Server, Game: GameWithSession ): void
+export function listenOn( server: Server, Game: GameWithSession ): void
 {
 	let newSession: WebSocket[] = [];
 	
@@ -43,11 +43,3 @@ function listenOn( server: Server, Game: GameWithSession ): void
 		},
 	);
 }
-
-export {
-	listenOn,
-};
-
-export type {
-	GameWithSession,
-};

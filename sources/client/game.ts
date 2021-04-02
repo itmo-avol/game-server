@@ -15,7 +15,7 @@ let sendMessage: typeof import( './connection.js' ).sendMessage;
  * 
  * @param sendMessageFunction Функция отправки сообщений
  */
-function setSendMessage( sendMessageFunction: typeof sendMessage ): void
+export function setSendMessage( sendMessageFunction: typeof sendMessage ): void
 {
 	sendMessage = sendMessageFunction;
 }
@@ -46,7 +46,7 @@ function restartHandler(): void
 /**
  * Начинает игру
  */
-function startGame(): void
+export function startGame(): void
 {
 	openScreen( 'game' );
 }
@@ -56,7 +56,7 @@ function startGame(): void
  * 
  * @param myTurn Ход текущего игрока?
  */
-function changePlayer( myTurn: boolean ): void
+export function changePlayer( myTurn: boolean ): void
 {
 	GameScreen.update( myTurn );
 }
@@ -66,15 +66,8 @@ function changePlayer( myTurn: boolean ): void
  * 
  * @param result Результат игры
  */
-function endGame( result: 'win' | 'loose' | 'abort' ): void
+export function endGame( result: 'win' | 'loose' | 'abort' ): void
 {
 	ResultScreen.update( result );
 	openScreen( 'result' );
 }
-
-export {
-	startGame,
-	changePlayer,
-	endGame,
-	setSendMessage,
-};

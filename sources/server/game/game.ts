@@ -13,7 +13,7 @@ import type {
  * 
  * Запускает игровую сессию.
  */
-class Game
+export class Game
 {
 	/**
 	 * Количество игроков в сессии
@@ -41,7 +41,7 @@ class Game
 				() =>
 				{
 					this._listenMessages();
-				}
+				},
 			)
 			.catch( onError );
 	}
@@ -121,8 +121,8 @@ class Game
 						}
 						
 						resolve();
-					}
-				)
+					},
+				);
 			},
 		);
 	}
@@ -290,7 +290,3 @@ class Game
 		}
 	}
 }
-
-export {
-	Game,
-};

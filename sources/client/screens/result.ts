@@ -1,11 +1,11 @@
 /**
  * Сообщение с итогом игры
  */
-const message = document.querySelector( 'main.result>p' ) as HTMLParagraphElement;
+const message = document.querySelector<HTMLParagraphElement>( 'main.result>p' );
 /**
  * Кнопка перезапуска игры
  */
-const restart = document.querySelector( 'main.result>button.restart' ) as HTMLButtonElement;
+const restart = document.querySelector<HTMLButtonElement>( 'main.result>button.restart' );
 
 if ( !message || !restart )
 {
@@ -17,7 +17,7 @@ if ( !message || !restart )
  * 
  * @param result Результат, с которым игра завершилась
  */
-function update( result: 'win' | 'loose' | 'abort' ): void
+export const update = ( result: 'win' | 'loose' | 'abort' ): void =>
 {
 	restart.hidden = false;
 	
@@ -50,12 +50,7 @@ function update( result: 'win' | 'loose' | 'abort' ): void
  * 
  * @param listener Обработчик перезапуска игры
  */
-function setRestartHandler( listener: ( event: MouseEvent ) => void ): void
+export const setRestartHandler = ( listener: ( event: MouseEvent ) => void ): void =>
 {
 	restart.addEventListener( 'click', listener );
 }
-
-export {
-	update,
-	setRestartHandler,
-};

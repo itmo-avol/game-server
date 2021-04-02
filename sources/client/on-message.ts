@@ -1,4 +1,9 @@
-import { startGame, changePlayer, endGame, setSendMessage } from './game.js';
+import {
+	startGame,
+	changePlayer,
+	endGame,
+	setSendMessage,
+} from './game.js';
 
 import type {
 	AnyServerMessage,
@@ -15,7 +20,7 @@ type SendMessage = typeof import( './connection.js' ).sendMessage;
  * @param sendMessage Функция отправки сообщений
  * @param data Пришедшие данные
  */
-function onMessage( sendMessage: SendMessage, data: unknown ): void
+export function onMessage( sendMessage: SendMessage, data: unknown ): void
 {
 	setSendMessage( sendMessage );
 	
@@ -95,7 +100,3 @@ function processMessage( sendMessage: SendMessage, message: AnyServerMessage ): 
 			break;
 	}
 }
-
-export {
-	onMessage,
-};
